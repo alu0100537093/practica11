@@ -23,4 +23,11 @@ describe Pregunta do
 			@p1.get_respuesta_c != nil
 			@p1.get_respuesta_d != nil
 		end
+		
+		it "Las respuestas deben ser las adecuadas" do
+			@p1.get_respuesta_a.should eq("Respuesta a")
+			@p1.get_respuesta_b.should eq("Respuesta b")
+			@p1.get_respuesta_c.should eq("Respuesta c")
+			@p1.get_respuesta_d.should eq("Respuesta d")
+		end
 end
