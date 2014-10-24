@@ -7,6 +7,10 @@ class Pregunta
 		@res3 = respuesta_3
 		@res4 = respuesta_4
 	end
+
+	def to_s
+		"#{@enunciado}\na)#{@res1}\nb)#{@res2}\nc)#{@res3}\nd)#{@res4}"
+	end
 	
 	def get_enunciado
 		@enunciado
@@ -27,4 +31,11 @@ class Pregunta
 	def get_respuesta_d
 		@res4
 	end
+
+	def showQuestion
+		puts to_s
+	end
 end
+
+#@aux = Pregunta.new("Pregunta","a","b","c","d")
+#@aux.showQuestion

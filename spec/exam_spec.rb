@@ -30,4 +30,8 @@ describe Pregunta do
 			@p1.get_respuesta_c.should eq("Respuesta c")
 			@p1.get_respuesta_d.should eq("Respuesta d")
 		end
+
+		it "Comprobando funcionamiento del metodo to_s" do
+			@p1.to_s.should eq("Pregunta\na)Respuesta a\nb)Respuesta b\nc)Respuesta c\nd)Respuesta d")
+		end
 end
