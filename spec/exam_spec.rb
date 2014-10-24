@@ -14,7 +14,7 @@ describe Pregunta do
 		end
 		
 		it "El enunciado de la pregunta es el correcto" do
-			@p1.get_enunciado = "Pregunta"
+			@p1.get_enunciado.should eq("Pregunta")
 		end
 		
 		it "Existen respuestas" do
