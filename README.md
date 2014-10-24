@@ -1,6 +1,6 @@
 # Exam
 
-TODO: Write a gem description
+This gem lets you create a type examination test.
 
 ## Installation
 
@@ -29,3 +29,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+## Contributors
+
+###### [Daniel Luis Martín](https://bitbucket.org/alu0100537093)
+###### [Jorge Gomez Weyler](https://bitbucket.org/alu0100717723)
