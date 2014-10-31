@@ -46,10 +46,18 @@ describe Nodo do
 	before :all do
 		@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
 		@nodo_prueba = Nodo.new(@ex1,nil)
+		@nodo_prueba2 = Nodo.new(@ex1,@ex1)
 		
 	end
 
-	
+	it "Existe un valor"
+		@nodo_prueba2.get_value.should eq(@ex1)	
+	end
+
+	it "Existe un siguiente"
+		@nodo_prueba2.get_next.should eq(@ex1)	
+	end
+
 
 
 end
