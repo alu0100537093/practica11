@@ -77,6 +77,10 @@ describe Lista do
 			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
 			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'])
 			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'])
+			@ex4 = Pregunta.new("Pregunta a", ['Verdadero', 'Falso'])
+			@ex5 = Pregunta.new("Pregunta b", ['Verdadero', 'Falso'])
+			@ex6 = Pregunta.new("Pregunta c", ['Verdadero', 'Falso'])
+			@nodo_prueba2 = Lista.new([@ex4, @ex5, @ex6])
 			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
 			@nodo_final = Nodo.new(@ex3,nil)
 		end
@@ -107,6 +111,11 @@ describe Lista do
 		it "Debe existir una Lista con su cabeza" do
 			@nodo_prueba.get_cabeza.should eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
 		end
+		
+		it "Comprobacion del metodo to_s" do
+			@nodo_prueba2.to_s ==("1) Pregunta a\nVerdadero\nFalso\n\n2)Pregunta b\nVerdadero\nFalso\n\n3)Pregunta c\nVerdadero\nFalso\n")
+		end
+		
 
 end
 
