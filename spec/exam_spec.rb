@@ -39,4 +39,19 @@ describe Pregunta do
 			@p1.to_s ==("Pregunta\nRespuesta a\nRespuesta b\nRespuesta c\nRespuesta d")
 		end
 
+
+describe Nodo do
+	
+	before :all do
+		@ex1 = Examen.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
+		@nodo_prueba = Lista.new([@ex1])
+		
+	end
+
+	
+
+
 end
+
+
+
