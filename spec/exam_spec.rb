@@ -78,7 +78,18 @@ describe Lista do
 			@ex2 = Examen.new("5+7 =",['43','21','12','6','11'])
 			@ex3 = Examen.new("Pregunta", ['a','b','c','d'])
 			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
+			@nodo_final = Nodo.new(@ex3,nil)
 		end
+
+		it "Debe existir un nodo de la lista con sus datos y su siguiente" do
+			@nodo_prueba.get_cabeza.get_value.should eq(@ex1)
+		end
+		
+		it "Se indica correctamente cual es el ultimo nodo de la lista" do
+			@nodo_prueba.get_final.should eq(@nodo_final)
+		end
+
+
 end
 
 
