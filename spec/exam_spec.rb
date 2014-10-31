@@ -47,7 +47,7 @@ describe Nodo do
 		@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
 		@nodo_prueba = Nodo.new(@ex1,nil)
 		@nodo_prueba2 = Nodo.new(@ex1,@ex1)
-		
+		@nodo_prueba3 = Nodo.new(@ex1,@ex1)
 	end
 
 	it "Existe un valor" do
@@ -58,6 +58,10 @@ describe Nodo do
 	it "Existe un siguiente" do
 		@nodo_prueba.get_next.should eq(nil)
 		@nodo_prueba2.get_next.should eq(@ex1)	
+	end
+	
+	it "Comprobamos el funcionamiento del operador =" do
+		@nodo_prueba2.should eq(@nodo_prueba3)
 	end
 
 
