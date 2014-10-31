@@ -22,4 +22,27 @@ class Lista
 	def get_final	
 		@final
 	end
+
+	def extraer_primero
+		aux = @cabeza
+		puts aux[:value]
+		@cabeza = @cabeza[:next]
+		aux = nil
+	end
+
+	def ==(other)
+		es_igual = true
+		aux = @cabeza
+		aux2 = other.get_cabeza
+
+		while((aux != nil) && (es_igual == true) && (aux2 != nil)) do
+			if(aux[:value] != aux2[:value])
+				es_igual = false
+			else
+				aux = aux[:next]
+				aux2 =aux2[:next]
+			end
+		end
+		return es_igual
+	end
 end
