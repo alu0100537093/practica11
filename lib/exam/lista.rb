@@ -57,4 +57,20 @@ class Lista
 			@final = aux
 		}
 	end
+
+	def to_s
+		aux = @cabeza
+		cadena = ""
+		contador = 0
+		while(aux != nil)do
+			cadena += "#{contador}) #{aux[:value].to_s}\n"
+			aux = aux[:next]
+		end
+		cadena
+	end
+
+	def show()
+		puts to_s
+	end
+
 end
