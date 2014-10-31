@@ -88,6 +88,11 @@ describe Lista do
 		it "Se indica correctamente cual es el ultimo nodo de la lista" do
 			@nodo_prueba.get_final.should eq(@nodo_final)
 		end
+		
+		it "Se extrae el primer elemento de la lista" do
+			@nodo_prueba.extraer_primero
+			@nodo_prueba.should eq (Lista.new([@ex2, @ex3]))
+		end
 
 
 end
