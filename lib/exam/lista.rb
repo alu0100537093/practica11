@@ -14,4 +14,12 @@ class Lista
 			end
 		}
 	end
+
+	def get_cabeza
+		@cabeza
+	end
+
+	def get_final	
+		@final
+	end
 end

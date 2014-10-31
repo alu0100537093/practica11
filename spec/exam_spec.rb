@@ -74,9 +74,9 @@ describe Lista do
 	
 	
 		before :all do
-			@ex1 = Examen.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
-			@ex2 = Examen.new("5+7 =",['43','21','12','6','11'])
-			@ex3 = Examen.new("Pregunta", ['a','b','c','d'])
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
+			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'])
+			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'])
 			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
 			@nodo_final = Nodo.new(@ex3,nil)
 		end
