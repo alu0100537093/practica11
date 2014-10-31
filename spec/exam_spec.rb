@@ -8,18 +8,20 @@ describe Pregunta do
 			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
 		end
   
+		it "Debe existir una pregunta" do
+			@p1.should eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d']))
+		end
 
-		it "La pregunta tiene enunciado" do
+		it "Existe un enunciado deseado" do
 			@p1.get_enunciado != nil
+			@p1.get_enunciado == "Pregunta"
 		end
 
 		it "Existen respuestas" do
 			@p1.get_respuestas != nil
+			@p1.get_respuestas.should eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
 		end
 		
-		it "El enunciado de la pregunta es el correcto" do
-			@p1.get_enunciado.should eq("Pregunta")
-		end
 
 		it "Se devuelve la respuesta que se pasa como parametro" do
 			@p1.get_respuesta(1).should eq('Respuesta b')

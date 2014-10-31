@@ -8,11 +8,12 @@ class Pregunta
 	def to_s
             
 		aux = "#{@enunciado}\n"
-		@respuestas.each do |r|
-		  aux += "#{r}\n"
+		contador = 0
+		@respuestas.each { |r|
+			contador = contador + 1
+			aux += "#{contador}. #{r}\n"
+		}
 		aux
-	end
-
 	end
 	
 	def get_enunciado
@@ -29,6 +30,17 @@ class Pregunta
 
 	def showQuestion
 		puts to_s
+	end
+
+	def ==(other)
+		if(other == nil)
+			return false
+		end
+		if((@enunciado == other.get_enunciado) && (@respuestas == other.get_respuestas))
+			return true
+		else
+			return false
+		end
 	end
 end
 
