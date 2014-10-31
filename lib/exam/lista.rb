@@ -45,4 +45,16 @@ class Lista
 		end
 		return es_igual
 	end
+
+	def add(preguntas)
+		aux = @cabeza
+		while (aux[:next] != nil) do
+			aux = aux[:next]
+		end
+		preguntas.each{|x|
+			aux[:next] = Nodo.new(x, nil)
+			aux = aux[:next]
+			@final = aux
+		}
+	end
 end
