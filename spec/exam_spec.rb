@@ -50,11 +50,13 @@ describe Nodo do
 		
 	end
 
-	it "Existe un valor"
+	it "Existe un valor" do
+		@nodo_prueba.get_value.should eq(@ex1)
 		@nodo_prueba2.get_value.should eq(@ex1)	
 	end
 
-	it "Existe un siguiente"
+	it "Existe un siguiente" do
+		@nodo_prueba.get_next.should eq(nil)
 		@nodo_prueba2.get_next.should eq(@ex1)	
 	end
 
