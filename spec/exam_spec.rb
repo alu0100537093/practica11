@@ -93,6 +93,16 @@ describe Lista do
 			@nodo_prueba.extraer_primero
 			@nodo_prueba.should eq (Lista.new([@ex2, @ex3]))
 		end
+		
+		it "Se puede insertar un elemento" do
+			@nodo_prueba.add([@ex1])
+			@nodo_prueba.should eq (Lista.new([@ex2, @ex3, @ex1]))
+		end
+	
+		it "Se puede insertar varios elementos" do
+			@nodo_prueba.add([@ex2, @ex2])
+			@nodo_prueba.should eq (Lista.new([@ex2, @ex3, @ex1, @ex2, @ex2]))
+		end
 
 
 end
