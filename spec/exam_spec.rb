@@ -113,7 +113,7 @@ describe Lista do
 		end
 		
 		it "Comprobacion del metodo to_s" do
-			@nodo_prueba2.to_s ==("1) Pregunta a\nVerdadero\nFalso\n\n2)Pregunta b\nVerdadero\nFalso\n\n3)Pregunta c\nVerdadero\nFalso\n")
+			@nodo_prueba2.to_s ==("1) Pregunta a\n1. Verdadero\n2. Falso\n\n2)Pregunta b\n1. Verdadero\n2. Falso\n\n3)Pregunta c\n1. Verdadero\n2. Falso\n")
 		end
 		
 

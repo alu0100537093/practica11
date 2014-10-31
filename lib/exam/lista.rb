@@ -63,6 +63,7 @@ class Lista
 		cadena = ""
 		contador = 0
 		while(aux != nil)do
+			contador = contador +1
 			cadena += "#{contador}) #{aux[:value].to_s}\n"
 			aux = aux[:next]
 		end
