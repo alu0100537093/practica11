@@ -43,30 +43,42 @@ end
 
 describe Nodo do
 	
-	before :all do
-		@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
-		@nodo_prueba = Nodo.new(@ex1,nil)
-		@nodo_prueba2 = Nodo.new(@ex1,@ex1)
-		@nodo_prueba3 = Nodo.new(@ex1,@ex1)
-	end
-
-	it "Existe un valor" do
-		@nodo_prueba.get_value.should eq(@ex1)
-		@nodo_prueba2.get_value.should eq(@ex1)	
-	end
-
-	it "Existe un siguiente" do
-		@nodo_prueba.get_next.should eq(nil)
-		@nodo_prueba2.get_next.should eq(@ex1)	
-	end
+		before :all do
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
+			@nodo_prueba = Nodo.new(@ex1,nil)
+			@nodo_prueba2 = Nodo.new(@ex1,@ex1)
+			@nodo_prueba3 = Nodo.new(@ex1,@ex1)
+		end
 	
-	it "Comprobamos el funcionamiento del operador =" do
-		@nodo_prueba2.should eq(@nodo_prueba3)
-	end
+		it "Existe un valor" do
+			@nodo_prueba.get_value.should eq(@ex1)
+			@nodo_prueba2.get_value.should eq(@ex1)	
+		end
+	
+		it "Existe un siguiente" do
+			@nodo_prueba.get_next.should eq(nil)
+			@nodo_prueba2.get_next.should eq(@ex1)	
+		end
+		
+		it "Comprobamos el funcionamiento del operador =" do
+			@nodo_prueba2.should eq(@nodo_prueba3)
+		end
 
 
 
 end
 
+
+
+describe Lista do
+	
+	
+		before :all do
+			@ex1 = Examen.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
+			@ex2 = Examen.new("5+7 =",['43','21','12','6','11'])
+			@ex3 = Examen.new("Pregunta", ['a','b','c','d'])
+			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
+		end
+end
 
 
