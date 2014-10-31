@@ -104,6 +104,9 @@ describe Lista do
 			@nodo_prueba.should eq (Lista.new([@ex2, @ex3, @ex1, @ex2, @ex2]))
 		end
 
+		it "Debe existir una Lista con su cabeza" do
+			@nodo_prueba.get_cabeza.should eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
+		end
 
 end
 
