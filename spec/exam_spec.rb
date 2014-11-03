@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
 require 'exam.rb'
 
 
@@ -9,34 +11,34 @@ describe Pregunta do
 		end
   
 		it "Debe existir una pregunta" do
-			@p1.should eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d']))
+			expect(@p1).to eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d']))
 		end
 
 		it "Existe un enunciado deseado" do
-			@p1.get_enunciado != nil
-			@p1.get_enunciado == "Pregunta"
+			expect(@p1.get_enunciado).not_to eq (nil)
+			expect(@p1.get_enunciado).to eq ("Pregunta")
 		end
 
 		it "Existen respuestas" do
-			@p1.get_respuestas != nil
-			@p1.get_respuestas.should eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
+			expect(@p1.get_respuestas).not_to eq (nil)
+			expect(@p1.get_respuestas).to eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
 		end
 		
 
 		it "Se devuelve la respuesta que se pasa como parametro" do
-			@p1.get_respuesta(1).should eq('Respuesta b')
+			expect(@p1.get_respuesta(1)).to eq('Respuesta b')
 		end
 		
 		
 		it "Las respuestas deben ser las adecuadas" do
-			@p1.get_respuesta(0).should eq("Respuesta a")
-			@p1.get_respuesta(1).should eq("Respuesta b")
-			@p1.get_respuesta(2).should eq("Respuesta c")
-			@p1.get_respuesta(3).should eq("Respuesta d")
+			expect(@p1.get_respuesta(0)).to eq("Respuesta a")
+			expect(@p1.get_respuesta(1)).to eq("Respuesta b")
+			expect(@p1.get_respuesta(2)).to eq("Respuesta c")
+			expect(@p1.get_respuesta(3)).to eq("Respuesta d")
 		end
 
 		it "Comprobando funcionamiento del metodo to_s" do
-			@p1.to_s ==("Pregunta\nRespuesta a\nRespuesta b\nRespuesta c\nRespuesta d")
+			expect(@p1.to_s).to eq("Pregunta\n1. Respuesta a\n2. Respuesta b\n3. Respuesta c\n4. Respuesta d\n")
 		end
 
 end
@@ -45,23 +47,30 @@ describe Nodo do
 	
 		before :all do
 			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
-			@nodo_prueba = Nodo.new(@ex1,nil)
-			@nodo_prueba2 = Nodo.new(@ex1,@ex1)
-			@nodo_prueba3 = Nodo.new(@ex1,@ex1)
+			@ex2 = Pregunta.new("Pregunta ",['a','b','c','d'])
+			@nodo_prueba = Nodo.new(@ex1,@ex2)
+			@nodo_prueba2 = Nodo.new(@ex1,@ex1, @nodo_prueba)
+			@nodo_prueba3 = Nodo.new(@ex1,@ex1, @nodo_prueba)
 		end
 	
 		it "Existe un valor" do
-			@nodo_prueba.get_value.should eq(@ex1)
-			@nodo_prueba2.get_value.should eq(@ex1)	
+			expect(@nodo_prueba.to_a[0]).to eq(@ex1)
+			expect(@nodo_prueba2.to_a[0]).to eq(@ex1)	
 		end
 	
 		it "Existe un siguiente" do
-			@nodo_prueba.get_next.should eq(nil)
-			@nodo_prueba2.get_next.should eq(@ex1)	
+			expect(@nodo_prueba.to_a[1]).to eq(@ex2)
+			expect(@nodo_prueba2.to_a[1]).to eq(@ex1)	
+		end
+
+		it "Existe un nodo anterior" do
+			expect(@nodo_prueba2.to_a[2]).to eq(@nodo_prueba)
+			expect(@nodo_prueba3.to_a[2]).to eq(@nodo_prueba)
 		end
 		
 		it "Comprobamos el funcionamiento del operador =" do
-			@nodo_prueba2.should eq(@nodo_prueba3)
+			expect(@nodo_prueba2).to eq(@nodo_prueba3)
+			expect(@nodo_prueba2).not_to eq(@nodo_prueba)
 		end
 
 
@@ -86,34 +95,34 @@ describe Lista do
 		end
 
 		it "Debe existir un nodo de la lista con sus datos y su siguiente" do
-			@nodo_prueba.get_cabeza.get_value.should eq(@ex1)
+			expect(@nodo_prueba.get_cabeza.to_a[0]).to eq(@ex1)
 		end
 		
 		it "Se indica correctamente cual es el ultimo nodo de la lista" do
-			@nodo_prueba.get_final.should eq(@nodo_final)
+			expect(@nodo_prueba.get_final).to eq(@nodo_final)
 		end
 		
 		it "Se extrae el primer elemento de la lista" do
 			@nodo_prueba.extraer_primero
-			@nodo_prueba.should eq (Lista.new([@ex2, @ex3]))
+			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3]))
 		end
 		
 		it "Se puede insertar un elemento" do
 			@nodo_prueba.add([@ex1])
-			@nodo_prueba.should eq (Lista.new([@ex2, @ex3, @ex1]))
+			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3, @ex1]))
 		end
 	
 		it "Se puede insertar varios elementos" do
 			@nodo_prueba.add([@ex2, @ex2])
-			@nodo_prueba.should eq (Lista.new([@ex2, @ex3, @ex1, @ex2, @ex2]))
+			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3, @ex1, @ex2, @ex2]))
 		end
 
 		it "Debe existir una Lista con su cabeza" do
-			@nodo_prueba.get_cabeza.should eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
+			expect(@nodo_prueba.get_cabeza).to eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
 		end
 		
 		it "Comprobacion del metodo to_s" do
-			@nodo_prueba2.to_s ==("1) Pregunta a\n1. Verdadero\n2. Falso\n\n2)Pregunta b\n1. Verdadero\n2. Falso\n\n3)Pregunta c\n1. Verdadero\n2. Falso\n")
+			@nodo_prueba2.to_s == ("1)Pregunta a\n1. Verdadero\n2. Falso\n\n2)Pregunta b\n1. Verdadero\n2. Falso\n\n3)Pregunta c\n1. Verdadero\n2. Falso\n")
 		end
 		
 
@@ -134,7 +143,7 @@ describe Lista do
 		
 		
 		it "Se comprueba la estructura de la lista" do
-			@nodo_prueba.get_cabeza.should eq(Nodo.new(@ex1, Nodo.new(@ex2,Nodo.new(@ex3, Nodo.new(@ex4, Nodo.new(@ex5,nil))))))
+			expect(@nodo_prueba.get_cabeza).to eq(Nodo.new(@ex1, Nodo.new(@ex2,Nodo.new(@ex3, Nodo.new(@ex4, Nodo.new(@ex5,nil))))))
 			puts @nodo_prueba
 		end
 		
