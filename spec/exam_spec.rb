@@ -95,11 +95,11 @@ describe Lista do
 		end
 
 		it "Debe existir un nodo de la lista con sus datos y su siguiente" do
-			expect(@nodo_prueba.get_cabeza.to_a[0]).to eq(@ex1)
+			expect(@nodo_prueba.cabeza.to_a[0]).to eq(@ex1)
 		end
 		
 		it "Se indica correctamente cual es el ultimo nodo de la lista" do
-			expect(@nodo_prueba.get_final).to eq(@nodo_final)
+			expect(@nodo_prueba.final).to eq(@nodo_final)
 		end
 		
 		it "Se extrae el primer elemento de la lista" do
@@ -118,7 +118,7 @@ describe Lista do
 		end
 
 		it "Debe existir una Lista con su cabeza" do
-			expect(@nodo_prueba.get_cabeza).to eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
+			expect(@nodo_prueba.cabeza).to eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
 		end
 		
 		it "Comprobacion del metodo to_s" do
@@ -143,7 +143,7 @@ describe Lista do
 		
 		
 		it "Se comprueba la estructura de la lista" do
-			expect(@nodo_prueba.get_cabeza).to eq(Nodo.new(@ex1, Nodo.new(@ex2,Nodo.new(@ex3, Nodo.new(@ex4, Nodo.new(@ex5,nil))))))
+			expect(@nodo_prueba.cabeza).to eq(Nodo.new(@ex1, Nodo.new(@ex2,Nodo.new(@ex3, Nodo.new(@ex4, Nodo.new(@ex5,nil))))))
 			puts @nodo_prueba
 		end
 		

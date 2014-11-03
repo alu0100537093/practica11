@@ -1,4 +1,5 @@
 class Lista
+attr_reader :cabeza, :final
 
 	def initialize(preguntas)
 		contador = 0
@@ -15,14 +16,6 @@ class Lista
 		}
 	end
 
-	def get_cabeza
-		@cabeza
-	end
-
-	def get_final	
-		@final
-	end
-
 	def extraer_primero
 		aux = @cabeza
 		puts aux[:value]
@@ -33,7 +26,7 @@ class Lista
 	def ==(other)
 		es_igual = true
 		aux = @cabeza
-		aux2 = other.get_cabeza
+		aux2 = other.cabeza
 
 		while((aux != nil) && (es_igual == true) && (aux2 != nil)) do
 			if(aux[:value] != aux2[:value])
