@@ -78,18 +78,18 @@ describe Nodo do
 		end
 	
 		it "Existe un valor" do
-			expect(@nodo_prueba.to_a[0]).to eq(@ex1)
-			expect(@nodo_prueba2.to_a[0]).to eq(@ex1)	
+			expect(@nodo_prueba[:value]).to eq(@ex1)
+			expect(@nodo_prueba2[:value]).to eq(@ex1)	
 		end
 	
 		it "Existe un siguiente" do
-			expect(@nodo_prueba.to_a[1]).to eq(@ex2)
-			expect(@nodo_prueba2.to_a[1]).to eq(@ex1)	
+			expect(@nodo_prueba[:next]).to eq(@ex2)
+			expect(@nodo_prueba2[:next]).to eq(@ex1)	
 		end
 
 		it "Existe un nodo anterior" do
-			expect(@nodo_prueba2.to_a[2]).to eq(@nodo_prueba)
-			expect(@nodo_prueba3.to_a[2]).to eq(@nodo_prueba)
+			expect(@nodo_prueba2[:previous]).to eq(@nodo_prueba)
+			expect(@nodo_prueba3[:previous]).to eq(@nodo_prueba)
 		end
 		
 		it "Comprobamos el funcionamiento del operador =" do
