@@ -116,9 +116,18 @@ describe Lista do
 			@nodo_prueba.add([@ex2, @ex2])
 			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3, @ex1, @ex2, @ex2]))
 		end
+		
+		it "Se puede acceder a los elementos de la lista"do
+			expect(@nodo_prueba[0]).to eq(@ex2)
+			expect(@nodo_prueba[1]).to eq(@ex3)
+			expect(@nodo_prueba[2]).to eq(@ex1)
+			expect(@nodo_prueba[3]).to eq(@ex2)
+			expect(@nodo_prueba[4]).to eq(@ex2)
+			expect(@nodo_prueba[5]).to eq(nil)
+		end
 
 		it "Debe existir una Lista con su cabeza" do
-			expect(@nodo_prueba.cabeza).to eq(Nodo.new(@ex2, Nodo.new(@ex3,Nodo.new(@ex1, Nodo.new(@ex2, Nodo.new(@ex2,nil))))))
+			expect(@nodo_prueba.cabeza[:value]).to eq(@ex2)
 		end
 		
 		it "Comprobacion del metodo to_s" do
