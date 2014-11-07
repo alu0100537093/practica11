@@ -131,6 +131,12 @@ describe Lista do
 			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3]))
 		end
 		
+		it "Se puede acceder a los elementos anteriores"do
+			expect(@nodo_prueba.get_anterior[0]).to eq(nil)
+			expect(@nodo_prueba.get_anterior[1]).to eq(@ex1)
+			expect(@nodo_prueba.get_anterior[2]).to eq(@ex2)
+		end
+		
 		it "Se puede insertar un elemento" do
 			@nodo_prueba.add([@ex1])
 			expect(@nodo_prueba).to eq (Lista.new([@ex2, @ex3, @ex1]))
