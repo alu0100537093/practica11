@@ -1,5 +1,5 @@
 class Pregunta
-	
+	attr_reader :enunciado, :respuestas
 	def initialize(enunciado, respuestas)
 		@enunciado = enunciado
 		@respuestas = respuestas
@@ -16,16 +16,8 @@ class Pregunta
 		aux
 	end
 	
-	def get_enunciado
-		@enunciado
-	end
-	
 	def get_respuesta(index)
 		@respuestas[index]
-	end
-
-	def get_respuestas
-		@respuestas
 	end
 
 	def showQuestion
@@ -36,7 +28,7 @@ class Pregunta
 		if(other == nil)
 			return false
 		end
-		if((@enunciado == other.get_enunciado) && (@respuestas == other.get_respuestas))
+		if((@enunciado == other.enunciado) && (@respuestas == other.respuestas))
 			return true
 		else
 			return false

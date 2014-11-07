@@ -15,13 +15,13 @@ describe Pregunta do
 		end
 
 		it "Existe un enunciado deseado" do
-			expect(@p1.get_enunciado).not_to eq (nil)
-			expect(@p1.get_enunciado).to eq ("Pregunta")
+			expect(@p1.enunciado).not_to eq (nil)
+			expect(@p1.enunciado).to eq ("Pregunta")
 		end
 
 		it "Existen respuestas" do
-			expect(@p1.get_respuestas).not_to eq (nil)
-			expect(@p1.get_respuestas).to eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
+			expect(@p1.respuestas).not_to eq (nil)
+			expect(@p1.respuestas).to eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
 		end
 		
 
