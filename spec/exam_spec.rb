@@ -43,6 +43,30 @@ describe Pregunta do
 
 end
 
+
+describe Preguntasverdadero_falso do
+	
+		before :each do
+			@p1 = Preguntasverdadero_falso.new("Pregunta")
+		end
+		
+		it "Existe pregunta verdadero falso" do
+			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta"))
+		end
+		
+		it "Sus respuestas son verdadero y falso" do
+			expect(@p1.respuestas).to eq(['Verdadero', 'Falso'])
+		end
+		
+		it "El enunciado es el deseado" do
+			expect(@p1.enunciado).to eq("Pregunta")
+		end
+		
+		
+		
+			
+end	
+
 describe Nodo do
 	
 		before :all do
