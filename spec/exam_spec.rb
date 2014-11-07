@@ -49,6 +49,13 @@ describe Preguntasverdadero_falso do
 		before :each do
 			@p1 = Preguntasverdadero_falso.new("Pregunta")
 		end
+
+		it "Es una isntancia de la clase madre" do
+			expect(@p1.instance_of?(Pregunta)).to eq(false)
+			expect(@p1.instance_of?(Preguntasverdadero_falso)).to eq(true)
+			expect(@p1.is_a?(Pregunta)).to eq(true)
+			expect(@p1.is_a?(Preguntasverdadero_falso)).to eq(true)
+		end
 		
 		it "Existe pregunta verdadero falso" do
 			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta"))
