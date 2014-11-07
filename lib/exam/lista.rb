@@ -5,12 +5,12 @@ attr_reader :cabeza, :final
 		contador = 0
 		preguntas.each { |x|
 			if(contador == 0)
-				@cabeza = Nodo.new(x, nil)
+				@cabeza = Nodo.new(x, nil, nil)
 				@final = @cabeza
 				contador = contador + 1
 			else
 				aux = @final 
-				aux[:next] = Nodo.new(x, nil)
+				aux[:next] = Nodo.new(x, nil, aux)
 				@final = aux[:next]
 			end
 		}
@@ -49,6 +49,24 @@ attr_reader :cabeza, :final
 			aux = aux[:next]
 			@final = aux
 		}
+	end
+
+	def[](index)
+		aux = @cabeza
+		contador = 0
+
+		if(index < 0)
+			return nil
+		end
+
+		while(contador < index)do
+			contador = contador + 1
+			aux = aux[:next]
+			if (aux == nil)
+				return nil
+			end
+		end
+			aux[:value]
 	end
 
 	def to_s

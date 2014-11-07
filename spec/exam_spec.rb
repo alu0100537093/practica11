@@ -152,8 +152,8 @@ describe Lista do
 		
 		
 		it "Se comprueba la estructura de la lista" do
-			expect(@nodo_prueba.cabeza).to eq(Nodo.new(@ex1, Nodo.new(@ex2,Nodo.new(@ex3, Nodo.new(@ex4, Nodo.new(@ex5,nil))))))
-			puts @nodo_prueba
+			expect(@nodo_prueba).to eq(Lista.new([@ex1,@ex2,@ex3,@ex4,@ex5]))
+			#puts @nodo_prueba
 		end
 		
 			
