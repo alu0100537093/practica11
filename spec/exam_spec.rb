@@ -95,11 +95,11 @@ describe Lista do
 		end
 
 		it "Debe existir un nodo de la lista con sus datos y su siguiente" do
-			expect(@nodo_prueba.cabeza.to_a[0]).to eq(@ex1)
+			expect(@nodo_prueba.cabeza[:value]).to eq(@ex1)
 		end
 		
 		it "Se indica correctamente cual es el ultimo nodo de la lista" do
-			expect(@nodo_prueba.final).to eq(@nodo_final)
+			expect(@nodo_prueba.final[:value]).to eq(@ex3)
 		end
 		
 		it "Se extrae el primer elemento de la lista" do
