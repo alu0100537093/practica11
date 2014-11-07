@@ -69,6 +69,16 @@ attr_reader :cabeza, :final
 			aux[:value]
 	end
 
+	def recorrido_inverso
+		aux = @final
+		lista_inversa = Lista.new([aux[:value]])
+		while (aux[:previous] != nil) do
+			aux = aux[:previous]
+			lista_inversa.add([aux[:value]])
+		end
+		lista_inversa
+	end
+
 	def to_s
 		aux = @cabeza
 		cadena = ""
