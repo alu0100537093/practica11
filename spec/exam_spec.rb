@@ -125,6 +125,12 @@ describe Lista do
 			expect(@nodo_prueba[4]).to eq(@ex2)
 			expect(@nodo_prueba[5]).to eq(nil)
 		end
+		
+		
+		it "Se puede recorrer la lista inversamente con el atributo previous de nodo" do
+			expect(@nodo_prueba.recorrido_inverso).to eq (Lista.new([@ex2,@ex2,@ex1,@ex3,@ex2]))
+			expect(@nodo_prueba2.recorrido_inverso).to eq (Lista.new([@ex6, @ex5, @ex4]))
+		end
 
 		it "Debe existir una Lista con su cabeza" do
 			expect(@nodo_prueba.cabeza[:value]).to eq(@ex2)
