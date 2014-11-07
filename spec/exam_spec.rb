@@ -187,10 +187,10 @@ describe Lista do
 
 		before :all do
 			@ex1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'])
-			@ex2 = Pregunta.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}", ['Cierto', 'Falso'])
+			@ex2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}")
 			@ex3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'])
 			@ex4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'])
-			@ex5 = Pregunta.new("Es apropiado que una clase Tablero herede de una clase Juego", ['Cierto','Falso'])
+			@ex5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego")
 			@nodo_prueba = Lista.new([@ex1,@ex2,@ex3,@ex4,@ex5])
 		end
 		

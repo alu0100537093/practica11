@@ -18,7 +18,7 @@ attr_reader :cabeza, :final
 
 	def extraer_primero
 		aux = @cabeza
-		puts aux[:value]
+		#puts aux[:value]
 		@cabeza = @cabeza[:next]
 		aux = nil
 	end
