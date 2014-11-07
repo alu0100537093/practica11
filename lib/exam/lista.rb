@@ -69,6 +69,28 @@ attr_reader :cabeza, :final
 			aux[:value]
 	end
 
+	def get_anterior(index)
+		aux = @cabeza
+		contador = 0
+
+		if(index < 0)
+			return nil
+		end
+
+		while(contador < index)do
+			contador = contador + 1
+			aux = aux[:next]
+			if (aux == nil)
+				return nil
+			end
+		end
+		if(aux[:previous] == nil)
+			return nil
+		end
+		aux = aux[:previous]
+		aux[:value]	
+	end
+
 	def recorrido_inverso
 		aux = @final
 		lista_inversa = Lista.new([aux[:value]])
