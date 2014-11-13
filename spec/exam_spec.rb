@@ -87,12 +87,12 @@ describe Preguntasverdadero_falso do
 		end
 			
 end	
-=begin
+
 describe Nodo do
 	
 		before :all do
-			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
-			@ex2 = Pregunta.new("Pregunta ",['a','b','c','d'])
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'],1)
+			@ex2 = Pregunta.new("Pregunta ",['a','b','c','d'],3)
 			@nodo_prueba = Nodo.new(@ex1,@ex2)
 			@nodo_prueba2 = Nodo.new(@ex1,@ex1, @nodo_prueba)
 			@nodo_prueba3 = Nodo.new(@ex1,@ex1, @nodo_prueba)
@@ -123,7 +123,7 @@ describe Nodo do
 end
 
 
-
+=begin
 describe Lista do
 	
 	
