@@ -42,7 +42,7 @@ describe Pregunta do
 			expect(@p1.to_s).to eq("Pregunta\n1. Respuesta a\n2. Respuesta b\n3. Respuesta c\n4. Respuesta d\n")
 		end
 		
-		
+		# Mixin Comparable!
 		it "Se comparan preguntas correctamente" do
 			expect(@p1<@p2).to eq(true)
 			expect(@p1==@p2).to eq(false)
@@ -80,6 +80,7 @@ describe Preguntasverdadero_falso do
 			expect(@p1.enunciado).to eq("Pregunta")
 		end
 		
+		#Mixin comparable!
 		it "Se comparan preguntas de verdadero y falso correctamente" do
 			expect(@p1<@p2).to eq(true)
 			expect(@p1==@p3).to eq(true)
@@ -115,7 +116,7 @@ describe Nodo do
 		
 		it "Comprobamos el funcionamiento del operador =" do
 			expect(@nodo_prueba2).to eq(@nodo_prueba3)
-			expect(@nodo_prueba2).not_to eq(@nodo_prueba)
+			expect(@nodo_prueba2).to eq(@nodo_prueba)
 		end
 
 
@@ -222,6 +223,9 @@ describe Lista do
 		
 		it "Se cuentan el numero de preguntas de un examen" do
 			expect(@nodo_prueba.count).to eq(5)
+			expect(@nodo_prueba.max).to eq(@ex3)
+			expect(@nodo_prueba.min).to eq(@ex2)
+			expect(@nodo_prueba.sort).to eq([@ex2, @ex5, @ex1, @ex4, @ex3])
 		end
 	
 end

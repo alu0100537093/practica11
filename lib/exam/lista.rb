@@ -21,11 +21,11 @@ class Lista
 
 
 	def each
-     aux = @cabeza
-     while aux != nil do
-       yield aux
-       aux = aux[:next]
-     end
+	     aux = @cabeza
+	     while aux != nil do
+	       yield aux[:value]
+	       aux = aux[:next]
+	     end
    	end
    
    
