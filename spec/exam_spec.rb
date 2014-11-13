@@ -8,6 +8,7 @@ describe Pregunta do
 		
 		before :each do
 			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 5)
+			@p2 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 7)
 		end
   
 		it "Debe existir una pregunta" do
@@ -40,6 +41,14 @@ describe Pregunta do
 		it "Comprobando funcionamiento del metodo to_s" do
 			expect(@p1.to_s).to eq("Pregunta\n1. Respuesta a\n2. Respuesta b\n3. Respuesta c\n4. Respuesta d\n")
 		end
+		
+		
+		it "Se comparan preguntas correctamente" do
+			expect(@p1<@p2).to eq(true)
+			expect(@p1==@p2).to eq(false)
+			expect(@p2>@p1).to eq(true)
+		end
+		
 
 end
 
@@ -48,6 +57,8 @@ describe Preguntasverdadero_falso do
 	
 		before :each do
 			@p1 = Preguntasverdadero_falso.new("Pregunta", 3)
+			@p2 = Preguntasverdadero_falso.new("Pregunta", 6)
+			@p3 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 3)
 		end
 
 		it "Es una isntancia de la clase madre" do
@@ -69,8 +80,11 @@ describe Preguntasverdadero_falso do
 			expect(@p1.enunciado).to eq("Pregunta")
 		end
 		
-		
-		
+		it "Se comparan preguntas de verdadero y falso correctamente" do
+			expect(@p1<@p2).to eq(true)
+			expect(@p1==@p3).to eq(true)
+			expect(@p2>@p3).to eq(true)
+		end
 			
 end	
 =begin
