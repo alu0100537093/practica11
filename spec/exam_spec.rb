@@ -123,17 +123,17 @@ describe Nodo do
 end
 
 
-=begin
+
 describe Lista do
 	
 	
 		before :all do
-			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'])
-			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'])
-			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'])
-			@ex4 = Pregunta.new("Pregunta a", ['Verdadero', 'Falso'])
-			@ex5 = Pregunta.new("Pregunta b", ['Verdadero', 'Falso'])
-			@ex6 = Pregunta.new("Pregunta c", ['Verdadero', 'Falso'])
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'],2)
+			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'],2)
+			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'],3)
+			@ex4 = Pregunta.new("Pregunta a", ['Verdadero', 'Falso'],4)
+			@ex5 = Pregunta.new("Pregunta b", ['Verdadero', 'Falso'],4)
+			@ex6 = Pregunta.new("Pregunta c", ['Verdadero', 'Falso'],5)
 			@nodo_prueba2 = Lista.new([@ex4, @ex5, @ex6])
 			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
 			@nodo_final = Nodo.new(@ex3,nil)
@@ -192,6 +192,9 @@ describe Lista do
 			@nodo_prueba2.to_s == ("1)Pregunta a\n1. Verdadero\n2. Falso\n\n2)Pregunta b\n1. Verdadero\n2. Falso\n\n3)Pregunta c\n1. Verdadero\n2. Falso\n")
 		end
 		
+		
+		
+		
 
 end
 
@@ -200,11 +203,11 @@ describe Lista do
 
 
 		before :all do
-			@ex1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'])
-			@ex2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}")
-			@ex3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'])
-			@ex4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'])
-			@ex5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego")
+			@ex1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'],5)
+			@ex2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}",2)
+			@ex3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'],9)
+			@ex4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'],6)
+			@ex5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego",4)
 			@nodo_prueba = Lista.new([@ex1,@ex2,@ex3,@ex4,@ex5])
 		end
 		
@@ -213,9 +216,15 @@ describe Lista do
 			expect(@nodo_prueba).to eq(Lista.new([@ex1,@ex2,@ex3,@ex4,@ex5]))
 			#puts @nodo_prueba
 		end
+		
+		
+		#METODOS DEL MIX-IN ENUMERABLE
+		
+		it "Se cuentan el numero de preguntas de un examen" do
+			expect(@nodo_prueba.count).to eq(5)
+		end
 	
 end
-=end
 
 
 

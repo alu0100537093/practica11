@@ -1,5 +1,7 @@
 class Lista
-attr_reader :cabeza, :final
+
+	include Enumerable
+	attr_reader :cabeza, :final
 
 	def initialize(preguntas)
 		contador = 0
@@ -16,6 +18,17 @@ attr_reader :cabeza, :final
 		}
 	end
 
+
+
+	def each
+     aux = @cabeza
+     while aux != nil do
+       yield aux
+       aux = aux[:next]
+     end
+   	end
+   
+   
 	def extraer_primero
 		aux = @cabeza
 		#puts aux[:value]
