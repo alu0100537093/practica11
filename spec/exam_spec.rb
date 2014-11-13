@@ -7,11 +7,11 @@ describe Pregunta do
   
 		
 		before :each do
-			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
+			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 5)
 		end
   
 		it "Debe existir una pregunta" do
-			expect(@p1).to eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d']))
+			expect(@p1).to eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'],5))
 		end
 
 		it "Existe un enunciado deseado" do
@@ -47,7 +47,7 @@ end
 describe Preguntasverdadero_falso do
 	
 		before :each do
-			@p1 = Preguntasverdadero_falso.new("Pregunta")
+			@p1 = Preguntasverdadero_falso.new("Pregunta", 3)
 		end
 
 		it "Es una isntancia de la clase madre" do
@@ -58,7 +58,7 @@ describe Preguntasverdadero_falso do
 		end
 		
 		it "Existe pregunta verdadero falso" do
-			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta"))
+			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta",3))
 		end
 		
 		it "Sus respuestas son verdadero y falso" do
@@ -73,7 +73,7 @@ describe Preguntasverdadero_falso do
 		
 			
 end	
-
+=begin
 describe Nodo do
 	
 		before :all do
@@ -201,6 +201,7 @@ describe Lista do
 		end
 	
 end
+=end
 
 
 
