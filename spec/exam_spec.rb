@@ -59,6 +59,7 @@ describe Preguntasverdadero_falso do
 			@p1 = Preguntasverdadero_falso.new("Pregunta", 3)
 			@p2 = Preguntasverdadero_falso.new("Pregunta", 6)
 			@p3 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 3)
+			@p4 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 4)
 		end
 
 		it "Es una isntancia de la clase madre" do
@@ -85,6 +86,10 @@ describe Preguntasverdadero_falso do
 			expect(@p1<@p2).to eq(true)
 			expect(@p1==@p3).to eq(true)
 			expect(@p2>@p3).to eq(true)
+			expect(@p2>=@p3).to eq(true)
+			expect(@p2<=@p3).to eq(false)
+			expect(@p4.between?(@p1,@p2)).to eq(true)
+
 		end
 			
 end	
@@ -116,7 +121,7 @@ describe Nodo do
 		
 		it "Comprobamos el funcionamiento del operador =" do
 			expect(@nodo_prueba2).to eq(@nodo_prueba3)
-			expect(@nodo_prueba2).to eq(@nodo_prueba)
+			expect(@nodo_prueba2).not_to eq(@nodo_prueba)
 		end
 
 
@@ -223,6 +228,7 @@ describe Lista do
 		
 		it "Se cuentan el numero de preguntas de un examen" do
 			expect(@nodo_prueba.count).to eq(5)
+			expect(@nodo_prueba.map{|i| i}).to eq([@ex1,@ex2,@ex3,@ex4,@ex5])
 			expect(@nodo_prueba.max).to eq(@ex3)
 			expect(@nodo_prueba.min).to eq(@ex2)
 			expect(@nodo_prueba.sort).to eq([@ex2, @ex5, @ex1, @ex4, @ex3])
