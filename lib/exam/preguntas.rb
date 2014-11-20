@@ -2,10 +2,11 @@
 # encoding: utf-8
 class Pregunta
 	include Comparable
-	attr_reader :enunciado, :respuestas, :dificultad
-	def initialize(enunciado, respuestas, dificultad)
+	attr_reader :enunciado, :respuestas, :r_correcta, :dificultad
+	def initialize(enunciado, respuestas, r_correcta , dificultad)
 		@enunciado = enunciado
 		@respuestas = respuestas
+		@r_correcta = r_correcta
 		@dificultad = dificultad
 	end
 

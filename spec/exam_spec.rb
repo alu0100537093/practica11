@@ -7,12 +7,12 @@ describe Pregunta do
   
 		
 		before :each do
-			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 5)
-			@p2 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 7)
+			@p1 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'],0, 5)
+			@p2 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 3, 7)
 		end
   
 		it "Debe existir una pregunta" do
-			expect(@p1).to eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'],5))
+			expect(@p1).to eq(Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 0, 5))
 		end
 
 		it "Existe un enunciado deseado" do
@@ -24,14 +24,27 @@ describe Pregunta do
 			expect(@p1.respuestas).not_to eq (nil)
 			expect(@p1.respuestas).to eq (['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'])
 		end
+
+		it "Existe una opción de respuesta correcta" do
+			expect(@p1.r_correcta).to eq(0)
+			expect(@p2.r_correcta).to eq(3)
+			expect(@p1.r_correcta).not_to eq(1)
+			expect(@p2.r_correcta).not_to eq(2)
+		end
 		
+		it"Las preguntas tienen asociadas una dificultad" do
+			expect(@p1.dificultad).to eq(5)
+			expect(@p2.dificultad).to eq(7)
+			expect(@p1.dificultad).not_to eq(3)
+			expect(@p2.dificultad).not_to eq(1)
+		end
 
 		it "Se devuelve la respuesta que se pasa como parametro" do
 			expect(@p1.get_respuesta(1)).to eq('Respuesta b')
 		end
 		
 		
-		it "Las respuestas deben ser las adecuadas" do
+		it "Las respuestas devuelve la respuesta solicitada adecuada" do
 			expect(@p1.get_respuesta(0)).to eq("Respuesta a")
 			expect(@p1.get_respuesta(1)).to eq("Respuesta b")
 			expect(@p1.get_respuesta(2)).to eq("Respuesta c")
@@ -56,10 +69,10 @@ end
 describe Preguntasverdadero_falso do
 	
 		before :each do
-			@p1 = Preguntasverdadero_falso.new("Pregunta", 3)
-			@p2 = Preguntasverdadero_falso.new("Pregunta", 6)
-			@p3 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 3)
-			@p4 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 4)
+			@p1 = Preguntasverdadero_falso.new("Pregunta", 0,3)
+			@p2 = Preguntasverdadero_falso.new("Pregunta", 1,6)
+			@p3 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 3, 3)
+			@p4 = Pregunta.new("Pregunta", ['Respuesta a', 'Respuesta b', 'Respuesta c', 'Respuesta d'], 2 ,4)
 		end
 
 		it "Es una isntancia de la clase madre" do
@@ -70,7 +83,7 @@ describe Preguntasverdadero_falso do
 		end
 		
 		it "Existe pregunta verdadero falso" do
-			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta",3))
+			expect(@p1).to eq(Preguntasverdadero_falso.new("Pregunta", 0, 3))
 		end
 		
 		it "Sus respuestas son verdadero y falso" do
@@ -97,8 +110,8 @@ end
 describe Nodo do
 	
 		before :all do
-			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'],1)
-			@ex2 = Pregunta.new("Pregunta ",['a','b','c','d'],3)
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'], 1, 1)
+			@ex2 = Pregunta.new("Pregunta ",['a','b','c','d'], 2, 3)
 			@nodo_prueba = Nodo.new(@ex1,@ex2)
 			@nodo_prueba2 = Nodo.new(@ex1,@ex1, @nodo_prueba)
 			@nodo_prueba3 = Nodo.new(@ex1,@ex1, @nodo_prueba)
@@ -134,12 +147,12 @@ describe Lista do
 	
 	
 		before :all do
-			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'],2)
-			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'],2)
-			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'],3)
-			@ex4 = Pregunta.new("Pregunta a", ['Verdadero', 'Falso'],4)
-			@ex5 = Pregunta.new("Pregunta b", ['Verdadero', 'Falso'],4)
-			@ex6 = Pregunta.new("Pregunta c", ['Verdadero', 'Falso'],5)
+			@ex1 = Pregunta.new("1+2 =",['2','3','7','1','Ninguna de las anteriores'], 1, 2)
+			@ex2 = Pregunta.new("5+7 =",['43','21','12','6','11'], 2, 2)
+			@ex3 = Pregunta.new("Pregunta", ['a','b','c','d'], 3, 3)
+			@ex4 = Pregunta.new("Pregunta a", ['Verdadero', 'Falso'], 0, 4)
+			@ex5 = Pregunta.new("Pregunta b", ['Verdadero', 'Falso'], 1, 4)
+			@ex6 = Pregunta.new("Pregunta c", ['Verdadero', 'Falso'], 0, 5)
 			@nodo_prueba2 = Lista.new([@ex4, @ex5, @ex6])
 			@nodo_prueba = Lista.new([@ex1, @ex2, @ex3])
 			@nodo_final = Nodo.new(@ex3,nil)
@@ -209,11 +222,11 @@ describe Lista do
 
 
 		before :all do
-			@ex1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'],5)
-			@ex2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}",2)
-			@ex3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'],9)
-			@ex4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'],6)
-			@ex5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego",4)
+			@ex1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'], 1, 5)
+			@ex2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}", 0, 2)
+			@ex3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'], 2, 9)
+			@ex4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'], 0, 6)
+			@ex5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego", 0, 4)
 			@nodo_prueba = Lista.new([@ex1,@ex2,@ex3,@ex4,@ex5])
 		end
 		
