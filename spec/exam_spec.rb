@@ -308,4 +308,8 @@ describe Interfaz do
 
 			@interfaz = Interfaz.new([@examen, @examen2])
 		end
+
+		it "La interfaz posee un conjunto de examenes" do
+			expect(@interfaz.examenes).to eq ([@examen, @examen2])
+		end
 end
