@@ -274,4 +274,9 @@ describe Examen do
 			expect(@examen2.id).not_to eq('Otro nombre')
 			expect(@examen2.id).to eq('Examen_2')
 		end
+
+		it "El examen posee una Lista de preguntas" do
+			expect(@examen.lista).to eq(@lista)
+			expect(@examen2.lista).to eq(@lista2)
+		end
 end
