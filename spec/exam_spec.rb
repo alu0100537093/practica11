@@ -279,4 +279,10 @@ describe Examen do
 			expect(@examen.lista).to eq(@lista)
 			expect(@examen2.lista).to eq(@lista2)
 		end
+
+		it "El examen posee una plantilla de respuestas" do
+			expect(@examen.plantilla).to eq([1,0,2,0,0])
+			expect(@examen.plantilla).not_to eq([1,0,3,0,0])
+			expect(@examen2.plantilla).to eq([2,1,0])
+		end
 end
