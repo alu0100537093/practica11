@@ -11,4 +11,12 @@ class Examen
 			@plantilla.push(x.r_correcta)
 		}
 	end
+
+	def comprobar_respuesta(indice_pregunta, respuesta_introducida)
+		if(@plantilla[indice_pregunta] == respuesta_introducida)
+			return true
+		else
+			return false
+		end
+	end
 end

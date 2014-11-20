@@ -285,6 +285,13 @@ describe Examen do
 			expect(@examen.plantilla).not_to eq([1,0,3,0,0])
 			expect(@examen2.plantilla).to eq([2,1,0])
 		end
+
+		it "Se comrpueba que la respuesta dada es correcta para una pregunta determinada" do
+			expect(@examen.comprobar_respuesta(0,1)).to eq(true)
+			expect(@examen.comprobar_respuesta(2,3)).to eq(false)
+			expect(@examen2.comprobar_respuesta(0,1)).to eq(false)
+			expect(@examen2.comprobar_respuesta(2,0)).to eq(true)
+		end
 end
 
 describe Interfaz do
