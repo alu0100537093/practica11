@@ -250,4 +250,28 @@ describe Lista do
 end
 
 describe Examen do
+		before :all do
+			@p1 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Xyz\n\t\tdef pots\n\t\t\t@nice\n\t\tend\n\tend\n\n\txyz = Xyz.new\n\tp xyz.pots", ['#<Xyz:0xa000208>','nil','0','Ninguna de las anteriores'], 1, 5)
+			@p2 = Preguntasverdadero_falso.new("La siguiente definicion de un hash en Ruby es valida:\n\n\thash_raro = {\n\t\t[1,2,3] => Object.new(),\n\t\tHash.new => :toto\n\t}", 0, 2)
+			@p3 = Pregunta.new("¿Cual es la salida del siguiente codigo Ruby?\n\n\tclass Array\n\t\tdef say_hi\n\t\t\t\"HEY\"\n\t\tend\n\tend\n\n\n\tp [1,\"bob\"].say_hi", ['1', 'bob','HEY!','Ninguna de las anteriores'], 2, 9)
+			@p4 = Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo Ruby?\n\n\tclass Objeto\n\tend", ['Una instancia de la clase Class', 'Una constante', 'Un objeto', 'Ninguna de las anteriores'], 0, 6)
+			@p5 = Preguntasverdadero_falso.new("Es apropiado que una clase Tablero herede de una clase Juego", 0, 4)
+			
+			@p6 = Pregunta.new("¿Cual es la capital de España?",['Francia', 'Lisboa', 'Madrid', 'Berlín'], 2, 1)
+			@p7 = Pregunta.new("72^4 = ¿?", ['576895', '26873856', '34393487', '984737642'], 1, 8)
+			@p8 = Preguntasverdadero_falso.new("Cualquier número elevado a 0 es igual a 1", 0, 2)
+
+			@lista = Lista.new([@p1,@p2,@p3,@p4,@p5])
+			@lista2 = Lista.new([@p6,@p7,@p8])
+
+			@examen = Examen.new('Examen_1', @lista)
+			@examen2 = Examen.new('Examen_2', @lista2)
+		end
+
+		it "El examen posee un nombre o identificador" do
+			expect(@examen.id).to eq('Examen_1')
+			expect(@examen.id).not_to eq('Un nombre cuaquiera') 
+			expect(@examen2.id).not_to eq('Otro nombre')
+			xpect(@examen2.id).to eq('Examen_2')
+		end
 end
