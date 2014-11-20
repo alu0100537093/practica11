@@ -5,4 +5,5 @@ module Exam
   require "exam/nodo.rb"
   require "exam/lista.rb"
   require "exam/preguntasverdadero_falso.rb"
+  require "exam/examen.rb"
 end
