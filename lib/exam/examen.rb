@@ -1,5 +1,5 @@
 class Examen
-	attr_reader :id
+	attr_reader :id, :lista
 
 	def initialize(id, lista)
 		raise ArgumentError, 'El id especificado no es una cadena' unless id.is_a? String
