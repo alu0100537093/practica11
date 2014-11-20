@@ -4,8 +4,11 @@ class Lista
 	attr_reader :cabeza, :final
 
 	def initialize(preguntas)
+		
+		raise ArgumentError, 'El argumento introducido no es un array de preguntas' unless preguntas.is_a? Array
 		contador = 0
 		preguntas.each { |x|
+			raise ArgumentError, 'El array que le pasa al constructor contiene elementos que no son Preguntas' unless x.is_a? Pregunta
 			if(contador == 0)
 				@cabeza = Nodo.new(x, nil, nil)
 				@final = @cabeza
