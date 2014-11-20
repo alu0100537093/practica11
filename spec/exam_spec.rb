@@ -327,8 +327,8 @@ describe Interfaz do
 			expect(@interfaz.examen_seleccionado).to eq(2)
 		end
 		
-		it "Se muestra el menu correctamente" do
-			expect(@interfaz.opcion1).to eq ([@examen, @examen2], "\n\nPor favor, seleccione un examen:")
+		it "Se muestra el primer submenu correctamente" do
+			expect(@interfaz.opcion1).to eq ("\n\nSeleccione el examen que desee cargar\n1. Examen_1\n2. Examen_2\n")
 		end
 		
 end

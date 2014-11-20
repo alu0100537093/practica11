@@ -14,4 +14,13 @@ class Interfaz
 		menu = ["Opcion 1. Cargar examen.\n\nOpcion 2. Resolver examen\n\nOpcion 3. Ver dificultad de examen\n\nOpcion 4. Salir"]
 	end
 	
+	def opcion1
+		contador = 1
+		aux = "\n\nSeleccione el examen que desee cargar\n"
+		@examenes.each{ |x|
+			aux += "#{contador}. #{x.id}\n"
+			contador = contador + 1
+		}
+		aux
+	end
 end
