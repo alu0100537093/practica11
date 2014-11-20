@@ -272,6 +272,6 @@ describe Examen do
 			expect(@examen.id).to eq('Examen_1')
 			expect(@examen.id).not_to eq('Un nombre cuaquiera') 
 			expect(@examen2.id).not_to eq('Otro nombre')
-			xpect(@examen2.id).to eq('Examen_2')
+			expect(@examen2.id).to eq('Examen_2')
 		end
 end
