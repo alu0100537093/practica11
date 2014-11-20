@@ -8,4 +8,9 @@ class Interfaz
 		@examenes = examenes
 		@examen_seleccionado = 0 #Este atributo apuntará al indice del examen que se desea realizar
 	end
+	
+	def showmenu()
+		menu = ["Opcion 1. Cargar examen.\n\nOpcion 2. Resolver examen\n\nOpcion 3. Ver dificultad de examen\n\nOpcion 4. Salir"]
+	end
+	
 end

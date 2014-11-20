@@ -312,4 +312,8 @@ describe Interfaz do
 		it "La interfaz posee un conjunto de examenes" do
 			expect(@interfaz.examenes).to eq ([@examen, @examen2])
 		end
+		
+		it "Se muestra el menu correctamente" do
+			expect(@interfaz.showmenu).to eq (["Opcion 1. Cargar examen.\n\nOpcion 2. Resolver examen\n\nOpcion 3. Ver dificultad de examen\n\nOpcion 4. Salir"])
+		end
 end
