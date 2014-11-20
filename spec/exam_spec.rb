@@ -307,6 +307,8 @@ describe Interfaz do
 			@examen2 = Examen.new('Examen_2', @lista2)
 
 			@interfaz = Interfaz.new([@examen, @examen2])
+			@interfaz.seleccion_menu = 1
+			@interfaz.examen_seleccionado = 2
 		end
 
 		it "La interfaz posee un conjunto de examenes" do
@@ -316,4 +318,17 @@ describe Interfaz do
 		it "Se muestra el menu correctamente" do
 			expect(@interfaz.showmenu).to eq (["Opcion 1. Cargar examen.\n\nOpcion 2. Resolver examen\n\nOpcion 3. Ver dificultad de examen\n\nOpcion 4. Salir"])
 		end
+		
+		it "Se comprueba que la opcion elegida por el usuario se almacena correctamente" do
+			expect(@interfaz.seleccion_menu).to eq(1)
+		end
+		
+		it "Se comprueba que el indice de examen seleccionado por el usuario se almacena correctamente" do
+			expect(@interfaz.examen_seleccionado).to eq(2)
+		end
+		
+		it "Se muestra el menu correctamente" do
+			expect(@interfaz.opcion1).to eq ([@examen, @examen2], "\n\nPor favor, seleccione un examen:")
+		end
+		
 end
