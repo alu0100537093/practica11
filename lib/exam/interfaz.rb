@@ -23,4 +23,8 @@ class Interfaz
 		}
 		aux
 	end
+
+	def mostrar_pregunta(examen, pregunta)
+		examen.lista[pregunta].to_s
+	end
 end

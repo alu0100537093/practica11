@@ -337,5 +337,10 @@ describe Interfaz do
 		it "Se muestra el primer submenu correctamente" do
 			expect(@interfaz.opcion1).to eq ("\n\nSeleccione el examen que desee cargar\n1. Examen_1\n2. Examen_2\n")
 		end
-		
+
+		it "Se muestran las preguntas especificadas" do
+			expect(@interfaz.mostrar_pregunta(@examen2, 0)).to eq("¿Cual es la capital de España?\n1. Francia\n2. Lisboa\n3. Madrid\n4. Berlín\n")
+			expect(@interfaz.mostrar_pregunta(@examen2, 1)).to eq("72^4 = ¿?\n1. 576895\n2. 26873856\n3. 34393487\n4. 984737642\n")
+			expect(@interfaz.mostrar_pregunta(@examen2, 2)).to eq("Cualquier número elevado a 0 es igual a 1\n1. Verdadero\n2. Falso\n")
+		end
 end
