@@ -6,4 +6,5 @@ module Exam
   require "exam/lista.rb"
   require "exam/preguntasverdadero_falso.rb"
   require "exam/examen.rb"
+  require "exam/interfaz.rb"
 end

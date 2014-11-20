@@ -286,3 +286,9 @@ describe Examen do
 			expect(@examen2.plantilla).to eq([2,1,0])
 		end
 end
+
+describe Interfaz do
+
+		before :all do
+		end
+end

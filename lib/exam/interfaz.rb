@@ -1,0 +1,2 @@
+class Interfaz
+end
