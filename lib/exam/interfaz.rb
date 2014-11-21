@@ -91,4 +91,32 @@ class Interfaz
 		end	
 	end
 
+	def menu
+		puts showmenu
+		puts "\n\n"
+		puts "Introduzca la operacion que desea realizar(Presione Ctrl + D para confirmar): "
+		@seleccion_menu = $stdin.read
+		@seleccion_menu = @seleccion_menu.to_i
+		puts "\n\n"
+		case @seleccion_menu
+			when 1
+				puts opcion1
+				puts "\n"
+				exam = $stdin.read
+				value = exam.to_i
+				value = value -1
+				cargar_examen(value)
+				menu
+			when 2
+				opcion2
+				menu
+			when 3	
+				puts opcion3
+				puts "\n"
+				menu
+			when 4
+				return
+		end
+	end
+
 end

@@ -394,7 +394,7 @@ describe Interfaz do
 			
 			expect(@interfaz.ejecucion_debug(0)).to eq(true)
 			expect(@interfaz.ejecucion_debug(1)).to eq(true)
-			#@interfaz.opcion2
+			#@interfaz.menu
 		end
 		
 end
