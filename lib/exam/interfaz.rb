@@ -38,9 +38,9 @@ class Interfaz
 			@examenes[examen].comprobar_respuesta(iterador, opcion_aleatoria)
 		end
 
-		if((@examenes[examen].respuestas_correctas != 0)||(@examenes[examen].respuestas_erroneas != 0))
-			return true # Si el numero de respuestas correcto o erroneo es distinto de 0, entonces es que se ha comprobado
-		else	            # que efectivamente se han respondido a las preguntas del examen
+		if((@examenes[examen].respuestas_correctas + @examenes[examen].respuestas_erroneas == elementos))
+			return true # Si el numero de respuestas correctas + el numero de respuestas erroneas = n_preguntas, entonces se
+		else	            # han respondido a todas las preguntas
 			return false
 		end	
 	end
