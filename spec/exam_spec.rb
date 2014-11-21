@@ -343,4 +343,8 @@ describe Interfaz do
 			expect(@interfaz.mostrar_pregunta(@examen2, 1)).to eq("72^4 = ¿?\n1. 576895\n2. 26873856\n3. 34393487\n4. 984737642\n")
 			expect(@interfaz.mostrar_pregunta(@examen2, 2)).to eq("Cualquier número elevado a 0 es igual a 1\n1. Verdadero\n2. Falso\n")
 		end
+		
+		it"Se ejecuta la simulación de un examen" do
+			expect(@interfaz.ejecucion_debug).to eq(true)
+		end
 end
