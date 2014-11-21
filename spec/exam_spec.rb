@@ -347,6 +347,11 @@ describe Interfaz do
 			expect(@interfaz.opcion1).to eq ("\n\nSeleccione el examen que desee cargar\n1. Examen_1\n2. Examen_2\n")
 		end
 
+		it "Se comprueba que se carga correctamente el examen deseado" do
+			expect(@interfaz.cargar_examen(1)).to eq(1)
+			expect(@interfaz.cargar_examen(0)).to eq(0)
+		end
+
 		it "Se muestran las preguntas especificadas" do
 			expect(@interfaz.mostrar_pregunta(@examen2, 0)).to eq("¿Cual es la capital de España?\n1. Francia\n2. Lisboa\n3. Madrid\n4. Berlín\n")
 			expect(@interfaz.mostrar_pregunta(@examen2, 1)).to eq("72^4 = ¿?\n1. 576895\n2. 26873856\n3. 34393487\n4. 984737642\n")

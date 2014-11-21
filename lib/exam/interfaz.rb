@@ -24,6 +24,10 @@ class Interfaz
 		aux
 	end
 
+	def cargar_examen(indice_examen)
+		@examen_seleccionado = indice_examen
+	end
+
 	def mostrar_pregunta(examen, pregunta)
 		examen.lista[pregunta].to_s
 	end
