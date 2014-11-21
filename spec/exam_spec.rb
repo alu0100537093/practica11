@@ -370,8 +370,8 @@ describe Interfaz do
 		end
 
 		it "Se indica al usuario si la pregunta ha sido respondida correctamente o no" do
-			expect(@interfaz.corregir_pregunta(@examen, 0, 1)).to eq("\nRespuesta Correcta.\n")
-			expect(@interfaz.corregir_pregunta(@examen, 1, 1)).to eq("\nRespuesta Incorrecta.\n")
+			expect(@interfaz.corregir_pregunta(@examen, 0, 2)).to eq("\nRespuesta Correcta.\n")
+			expect(@interfaz.corregir_pregunta(@examen, 1, 2)).to eq("\nRespuesta Incorrecta.\n")
 		end
 
 		it "Se pueden resetear los examenes realizados" do
@@ -393,3 +393,4 @@ describe Interfaz do
 			expect(@interfaz.opcion3).to eq("La dificultad del examen cargado es: 5")
 		end
 end
+

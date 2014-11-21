@@ -24,6 +24,29 @@ class Interfaz
 		aux
 	end
 
+	def opcion2
+		
+		reset #Reseteamos el examen en el caso de que se haya ejecutado anteriormente
+		examen = @examenes[@examen_seleccionado]
+		n_preguntas = examen.lista.count
+		respuesta = ""
+		n_preguntas.times do |i|
+			puts mostrar_pregunta(examen, i)
+			puts "\n"
+			puts "Su respuesta (Introduzca la respuesta y pulse Ctrl + D para continuar: "
+			respuesta =$stdin.read
+			respuesta = respuesta.to_i
+			puts "\n\n"
+			puts corregir_pregunta(examen, i, respuesta)
+		end
+		
+
+	end
+
+	def opcion3
+		"La dificultad del examen cargado es: #{@examenes[@examen_seleccionado].dificultad_examen}"
+	end
+
 	def cargar_examen(indice_examen)
 		@examen_seleccionado = indice_examen
 	end
@@ -33,7 +56,9 @@ class Interfaz
 	end
 
 	def corregir_pregunta(examen, indice_pregunta, respuesta_usuario)
-		if(examen.comprobar_respuesta(indice_pregunta, respuesta_usuario))
+		
+		decision = respuesta_usuario - 1
+		if(examen.comprobar_respuesta(indice_pregunta, decision))
 			return "\nRespuesta Correcta.\n"
 		else
 			return "\nRespuesta Incorrecta.\n"
@@ -62,8 +87,5 @@ class Interfaz
 			return false
 		end	
 	end
-	
-	def opcion3
-		"La dificultad del examen cargado es: #{@examenes[@examen_seleccionado].dificultad_examen}"
-	end
+
 end
