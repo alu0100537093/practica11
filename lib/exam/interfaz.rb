@@ -38,13 +38,16 @@ class Interfaz
 			respuesta = respuesta.to_i
 			puts "\n\n"
 			puts corregir_pregunta(examen, i, respuesta)
-		end
-		
-
+		end	
+		puts mostrar_resultado
 	end
 
 	def opcion3
 		"La dificultad del examen cargado es: #{@examenes[@examen_seleccionado].dificultad_examen}"
+	end
+
+	def mostrar_resultado
+		"\n\nResultado final:\n\n\tRespuestas correctas: #{@examenes[@examen_seleccionado].respuestas_correctas}\n\tRespuestas incorrectas: #{@examenes[@examen_seleccionado].respuestas_erroneas}\n\n"
 	end
 
 	def cargar_examen(indice_examen)

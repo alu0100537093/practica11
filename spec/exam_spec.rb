@@ -357,6 +357,14 @@ describe Interfaz do
 		it "Se muestra el primer submenu correctamente" do
 			expect(@interfaz.opcion1).to eq ("\n\nSeleccione el examen que desee cargar\n1. Examen_1\n2. Examen_2\n")
 		end
+		
+		it "Se comprueba que se devuelve string con dificultad del examen cargado" do
+			expect(@interfaz.opcion3).to eq("La dificultad del examen cargado es: 5")
+		end
+
+		it "Se comprueba que el resultado mostrado es el correcto" do
+			expect(@interfaz.mostrar_resultado).to eq("\n\nResultado final:\n\n\tRespuestas correctas: 0\n\tRespuestas incorrectas: 0\n\n")
+		end
 
 		it "Se comprueba que se carga correctamente el examen deseado" do
 			expect(@interfaz.cargar_examen(1)).to eq(1)
@@ -386,11 +394,8 @@ describe Interfaz do
 			
 			expect(@interfaz.ejecucion_debug(0)).to eq(true)
 			expect(@interfaz.ejecucion_debug(1)).to eq(true)
-		
+			#@interfaz.opcion2
 		end
 		
-		it "Se comprueba que se devuelve string con dificultad del examen cargado" do
-			expect(@interfaz.opcion3).to eq("La dificultad del examen cargado es: 5")
-		end
 end
 
