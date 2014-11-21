@@ -23,4 +23,9 @@ class Examen
 			return false
 		end
 	end
+
+	def reset
+		@respuestas_correctas = 0
+		@respuestas_erroneas = 0
+	end
 end

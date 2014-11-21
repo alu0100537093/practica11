@@ -292,6 +292,15 @@ describe Examen do
 			expect(@examen2.comprobar_respuesta(0,1)).to eq(false)
 			expect(@examen2.comprobar_respuesta(2,0)).to eq(true)
 		end
+
+		it "Comprobando funcionamiento de la funcion reset" do
+			@examen.reset()
+			@examen2.reset()
+			expect(@examen.respuestas_correctas).to eq(0)
+			expect(@examen.respuestas_erroneas).to eq(0)
+			expect(@examen2.respuestas_correctas).to eq(0)
+			expect(@examen2.respuestas_erroneas).to eq(0)
+		end
 end
 
 describe Interfaz do
@@ -343,8 +352,22 @@ describe Interfaz do
 			expect(@interfaz.mostrar_pregunta(@examen2, 1)).to eq("72^4 = ¿?\n1. 576895\n2. 26873856\n3. 34393487\n4. 984737642\n")
 			expect(@interfaz.mostrar_pregunta(@examen2, 2)).to eq("Cualquier número elevado a 0 es igual a 1\n1. Verdadero\n2. Falso\n")
 		end
+
+		it "Se indica al usuario si la pregunta ha sido respondida correctamente o no" do
+			expect(@interfaz.corregir_pregunta(@examen, 0, 1)).to eq("\nRespuesta Correcta.\n")
+			expect(@interfaz.corregir_pregunta(@examen, 1, 1)).to eq("\nRespuesta Incorrecta.\n")
+		end
+
+		it "Se pueden resetear los examenes realizados" do
+			@interfaz.reset #Se resetean los resultados obtenidos de los examenes.
+			expect(@interfaz.examenes[0].respuestas_correctas).to eq(0)
+			expect(@interfaz.examenes[0].respuestas_erroneas).to eq(0)
+			expect(@interfaz.examenes[1].respuestas_correctas).to eq(0)
+			expect(@interfaz.examenes[1].respuestas_erroneas).to eq(0)
+		end
 		
 		it"Se ejecuta la simulación de un examen" do
+			
 			expect(@interfaz.ejecucion_debug(0)).to eq(true)
 			expect(@interfaz.ejecucion_debug(1)).to eq(true)
 		end

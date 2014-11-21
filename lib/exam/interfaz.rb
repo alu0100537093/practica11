@@ -28,6 +28,20 @@ class Interfaz
 		examen.lista[pregunta].to_s
 	end
 
+	def corregir_pregunta(examen, indice_pregunta, respuesta_usuario)
+		if(examen.comprobar_respuesta(indice_pregunta, respuesta_usuario))
+			return "\nRespuesta Correcta.\n"
+		else
+			return "\nRespuesta Incorrecta.\n"
+		end
+	end
+
+	def reset
+		@examenes.each { |exam|
+			exam.reset
+		}
+	end
+
 	def ejecucion_debug(examen)
 		#el examen seleccionado por defecto será el de la posición 0. -> @examenes[0]
 		elementos = @examenes[examen].lista.count
