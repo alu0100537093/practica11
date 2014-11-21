@@ -345,6 +345,7 @@ describe Interfaz do
 		end
 		
 		it"Se ejecuta la simulación de un examen" do
-			expect(@interfaz.ejecucion_debug).to eq(true)
+			expect(@interfaz.ejecucion_debug(0)).to eq(true)
+			expect(@interfaz.ejecucion_debug(1)).to eq(true)
 		end
 end
