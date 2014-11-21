@@ -1,5 +1,5 @@
 class Examen
-	attr_reader :id, :lista, :plantilla, :respuestas_correctas, :respuestas_erroneas
+	attr_reader :id, :lista, :plantilla, :respuestas_correctas, :respuestas_erroneas, :dificultad_examen
 
 	def initialize(id, lista)
 		raise ArgumentError, 'El id especificado no es una cadena' unless id.is_a? String
@@ -7,6 +7,11 @@ class Examen
 		@id = id
 		@lista = lista
 		@plantilla = []
+		@dificultad_examen = 0
+		@lista.each{|exam|
+			@dificultad_examen = @dificultad_examen + exam.dificultad
+		}
+		@dificultad_examen = (@dificultad_examen)/(@lista.count)
 		@lista.each{|x|
 			@plantilla.push(x.r_correcta)
 		}

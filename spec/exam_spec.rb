@@ -285,6 +285,11 @@ describe Examen do
 			expect(@examen.plantilla).not_to eq([1,0,3,0,0])
 			expect(@examen2.plantilla).to eq([2,1,0])
 		end
+		
+		it "Comprobamos que el calculo de la dificultad de un examen se realiza de forma correcta" do
+			expect(@examen.dificultad_examen).to eq(5)
+			expect(@examen2.dificultad_examen).to eq(3)
+		end
 
 		it "Se comrpueba que la respuesta dada es correcta para una pregunta determinada" do
 			expect(@examen.comprobar_respuesta(0,1)).to eq(true)
@@ -301,6 +306,12 @@ describe Examen do
 			expect(@examen2.respuestas_correctas).to eq(0)
 			expect(@examen2.respuestas_erroneas).to eq(0)
 		end
+		
+		
+	
+
+		
+		
 end
 
 describe Interfaz do
@@ -324,7 +335,7 @@ describe Interfaz do
 
 			@interfaz = Interfaz.new([@examen, @examen2])
 			@interfaz.seleccion_menu = 1
-			@interfaz.examen_seleccionado = 2
+			@interfaz.examen_seleccionado = 0
 		end
 
 		it "La interfaz posee un conjunto de examenes" do
@@ -340,7 +351,7 @@ describe Interfaz do
 		end
 		
 		it "Se comprueba que el indice de examen seleccionado por el usuario se almacena correctamente" do
-			expect(@interfaz.examen_seleccionado).to eq(2)
+			expect(@interfaz.examen_seleccionado).to eq(0)
 		end
 		
 		it "Se muestra el primer submenu correctamente" do
@@ -375,5 +386,10 @@ describe Interfaz do
 			
 			expect(@interfaz.ejecucion_debug(0)).to eq(true)
 			expect(@interfaz.ejecucion_debug(1)).to eq(true)
+		
+		end
+		
+		it "Se comprueba que se devuelve string con dificultad del examen cargado" do
+			expect(@interfaz.opcion3).to eq("La dificultad del examen cargado es: 5")
 		end
 end

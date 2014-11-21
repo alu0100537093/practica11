@@ -62,4 +62,8 @@ class Interfaz
 			return false
 		end	
 	end
+	
+	def opcion3
+		"La dificultad del examen cargado es: #{@examenes[@examen_seleccionado].dificultad_examen}"
+	end
 end
