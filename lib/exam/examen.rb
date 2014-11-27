@@ -35,6 +35,6 @@ class Examen
 	end
 
 	def invertir
-		@lista = @lista.recorrido_inverso
+		Proc.new {@lista.recorrido_inverso}
 	end
 end

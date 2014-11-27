@@ -119,4 +119,8 @@ class Interfaz
 		end
 	end
 
+	def invertir(funcion)
+		funcion.call
+	end
+
 end

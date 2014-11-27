@@ -308,8 +308,12 @@ describe Examen do
 		end
 		
 		
-		it "Comprobamos que el orden de las preguntas del examen se invierte" do
-			expect(@examen.invertir).to eq(Lista.new([@p5,@p4,@p3,@p2,@p1]))
+		it "Comprobamos que la funcion invertir devuelve un bloque" do
+			(@examen.invertir).is_a? Proc
+		end
+
+		it "Comprobamos que el proc devuelto en invertir hace que se invierta el examen" do
+			expect(@examen.invertir.call).to eq(Lista.new([@p5,@p4,@p3,@p2,@p1]))
 		end
 		
 		
@@ -400,6 +404,10 @@ describe Interfaz do
 			expect(@interfaz.ejecucion_debug(0)).to eq(true)
 			expect(@interfaz.ejecucion_debug(1)).to eq(true)
 			#@interfaz.menu
+		end
+
+		it "Se pueden invertir pasando un bloque mediante la funcion invertir" do
+			
 		end
 		
 end
