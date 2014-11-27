@@ -308,6 +308,11 @@ describe Examen do
 		end
 		
 		
+		it "Comprobamos que el orden de las preguntas del examen se invierte" do
+			expect(@examen.invertir).to eq(Lista.new([@p5,@p4,@p3,@p2,@p1]))
+		end
+		
+		
 	
 
 		
