@@ -407,7 +407,7 @@ describe Interfaz do
 		end
 
 		it "Se pueden invertir pasando un bloque mediante la funcion invertir" do
-			
+			expect(@interfaz.invertir(@examen.invertir)). to eq(Lista.new([@p5,@p4,@p3,@p2,@p1]))
 		end
 		
 end
