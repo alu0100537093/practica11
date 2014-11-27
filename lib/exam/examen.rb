@@ -33,4 +33,8 @@ class Examen
 		@respuestas_correctas = 0
 		@respuestas_erroneas = 0
 	end
+
+	def invertir
+		@lista = @lista.recorrido_inverso
+	end
 end
