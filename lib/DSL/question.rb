@@ -24,7 +24,8 @@ class Question
 		begin
 			puts self
 			print "Su respuesta: "
-			answerno = gets.to_i - 1
+			answerno = $stdin.read
+			answerno = answerno.to_i - 1
 		end while (answerno < 0 or answerno >= @answers.length)
 		@answers[answerno].is_right?
 		end

@@ -459,7 +459,32 @@ describe Interfaz do
 			expect(@pregunta1.text).to eq("3+4")
 		end
 		
+		
 	
+		
+	end
+	
+	describe Quiz do
+		
+		before :all do
+			@quiz = Quiz.new("Cuestionario de LPP 05/12/2014") {
+			question "¿Cuantos argumentos de tipo bloque puede recibir un metodo?",
+				right =>'1',
+				wrong =>'2',
+				wrong =>'muchos',
+				wrong =>'los que defina el usuario'
+			
+			question "En Ruby los bloque son objetos que continen codigo",
+				wrong =>'Cierto',
+				right =>'Falso'
+			}
+		end
+		
+		it "Se ejecuta el test" do
+			puts @quiz
+			@quiz.run
+		end
+		
 		
 	end
 			

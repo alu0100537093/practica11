@@ -19,10 +19,10 @@ class Quiz
 	end
 
 	def to_s
-		out = <<"EOQUIZ"
-		#{self.name}
-		#{self.questions.join("\n")}
-		EOQUIZ	
+		#out = <<"EOQUIZ"
+		self.name
+		self.questions.join("\n")
+		#EOQUIZ	
 	end
 
 	def wrong
