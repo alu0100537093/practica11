@@ -7,4 +7,8 @@ module Exam
   require "exam/preguntasverdadero_falso.rb"
   require "exam/examen.rb"
   require "exam/interfaz.rb"
+  require "DSL/answer.rb"
+  require "DSL/question.rb"
+  require "DSL/quiz.rb"
+  
 end

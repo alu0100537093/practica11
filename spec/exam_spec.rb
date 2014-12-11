@@ -410,5 +410,28 @@ describe Interfaz do
 			expect(@interfaz.invertir(@examen.invertir)). to eq(Lista.new([@p5,@p4,@p3,@p2,@p1]))
 		end
 		
+		
+		
+	describe Answer do
+		
+		before :all do
+			@respuesta1 = Answer.new(1, :RIGHT, "7")
+			@respuesta2 = Answer.new(2, :WRONG, "9")
+		end
+		
+		it "Se comprueba la clase del objeto" do
+			expect(@respuesta1.is_a?(Answer)).to eq(true)
+			expect(@respuesta2.is_a?(Answer)).to eq(true)
+		end
+		
+		it "La respuesta se muestra correctamente" do
+			expect(@respuesta1.to_s).to eq("1 - 7")
+			expect(@respuesta2.to_s).to eq("2 - 9")
+		end
+		
+		
+			
+	end
+		
 end
 
