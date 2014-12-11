@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jorge Gómez Weyler", "Daniel Luis Martín"]
   spec.email         = ["alu0100717723@ull.edu.es" ,"alu0100537093@ull.edu.es"]
   spec.summary       = %q{Gema para crear preguntas de selección simple.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Gema para crear preguntas de selección simple.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
