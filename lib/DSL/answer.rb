@@ -1,5 +1,6 @@
 
 class Answer
+    
 	attr_accessor :tipo, :indice, :respuesta
 	
 	def initialize(indice, tipo, respuesta)
@@ -7,6 +8,10 @@ class Answer
 	end
 	def to_s
 		"#{@indice} - #{respuesta}"
+	end
+	
+	def[](index)
+	    return self
 	end
 	
 	def is_right?

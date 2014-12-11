@@ -432,6 +432,38 @@ describe Interfaz do
 		
 			
 	end
+	
+	
+	describe Question do
+		
+		before :all do
+			@respuesta1 = Answer.new(1, :right, "7")
+			@respuesta2 = Answer.new(2, :wrong, "9")
+			@respuesta3 = Answer.new(3, :wrong, "4")
+			@respuesta4 = Answer.new(4, :wrong, "3")
+			@respuestas = Array.new(4)
+			@respuestas[0] = @respuesta1
+			@respuestas[1] = @respuesta2
+			@respuestas[2] = @respuesta3
+			@respuestas[3] = @respuesta4
+			@pregunta1 = Question.new("3+4", @respuestas)
+			
+		end
+		
+		it "Se comprueba la clase del objeto" do
+			
+			expect(@pregunta1.is_a?(Question)).to eq(true)
+		end
+		
+		it "La pregunta es la esperada" do
+			expect(@pregunta1.text).to eq("3+4")
+		end
+		
+	
+		
+	end
+			
+			
 		
 end
 

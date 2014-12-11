@@ -10,5 +10,6 @@ module Exam
   require "DSL/answer.rb"
   require "DSL/question.rb"
   require "DSL/quiz.rb"
+  require "DSL/respuestas.rb"
   
 end
